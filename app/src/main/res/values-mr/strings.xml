@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Vargani</string>
+
+    <string name="ganpati_subscription">गणेश वर्गणी</string>
+    <string name="marriage_list">लग्नाची यादी</string>
+    <string name="birthday_party">वाढदिवसाची पार्टी</string>
+    <string name="settings">सेटिंग</string>
+    <string name="others">इतर</string>
+    <string name="name">नाव:</string>
+    <string name="amount">रक्कम:</string>
+    <string name="address">पत्ता:</string>
+    <string name="submit">सबमिट करा</string>
+    <string name="all_details">सर्व सदस्यता दर्शवा</string>
+    <string name="hint_name">पहिले_नाव मधले_नाव आडनाव</string>
+    <string name="hint_amount">५०१</string>
+    <string name="hint_address">फ्लॅट नं.101, एक ब्लॉक/शहर/गाव</string>
+    <string name="hint_saree">1/0</string>
+    <string name="hint_gift">होय/नाही</string>
+    <string name="toast_ent_all_details">सर्व तपशील प्रविष्ट करा</string>
+    <string name="ganesha_subscription_success">गणेश सदस्यता यशस्वीरित्या जोडली</string>
+    <string name="error">एर्रोर.....</string>
+    <string name="provide_all_details">कृपया सर्व तपशील द्या....</string>
+    <string name="no_data">डेटा नाही....</string>
+    <string name="hide">लपवा</string>
+    <string name="choice_for">साठी विवाह यादी निवडा</string>
+    <string name="male">पुरुष</string>
+    <string name="female">स्त्री</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="saree">साडी</string>
+    <string name="marriage_add_success">यशस्वीरित्या जोडले</string>
+    <string name="gift">भेट:</string>
+    <string name="language">Language</string>
+    <string name="dark_mode">डार्क मोड</string>
+    <string name="change_language">भाषा बदला</string>
+    <string name="select_language">भाषा निवडा</string>
+    <string name="english">English</string>
+    <string name="marathi">मराठी</string>
+</resources>
