@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/black">
 
     <LinearLayout
         android:id="@+id/alertLay"
@@ -24,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="@string/select_language"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
 
@@ -45,7 +46,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_37sdp"
                     android:text="@string/english"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"
                     style="@style/ganesh_subs_text"/>
             </RelativeLayout>
@@ -67,7 +68,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_37sdp"
                     android:text="@string/marathi"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"
                     style="@style/ganesh_subs_text"/>
             </RelativeLayout>

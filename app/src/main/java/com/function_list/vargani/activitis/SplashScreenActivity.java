@@ -2,6 +2,7 @@ package com.function_list.vargani.activitis;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.function_list.vargani.R;
 import com.function_list.vargani.model.MyApp;
+import com.function_list.vargani.utils.LocalHelper;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -39,7 +41,13 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(MyApp.applyLanguageContext(newBase));
+        super.attachBaseContext(LocalHelper.wrap(newBase, LocalHelper.getCurrentLanguage(newBase)));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocalHelper.setLocale(this, LocalHelper.getCurrentLanguage(this));
     }
 
 }

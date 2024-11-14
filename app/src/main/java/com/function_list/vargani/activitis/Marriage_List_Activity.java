@@ -1,6 +1,7 @@
 package com.function_list.vargani.activitis;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.function_list.vargani.database.DataBaseHelper;
 import com.function_list.vargani.databinding.ActivityMarriageListBinding;
 import com.function_list.vargani.model.Marriage_List_Model;
 import com.function_list.vargani.model.MyApp;
+import com.function_list.vargani.utils.LocalHelper;
 import com.function_list.vargani.utils.MyUtils;
 
 import java.util.List;
@@ -49,7 +51,7 @@ public class Marriage_List_Activity extends AppCompatActivity {
 //        setContentView(R.layout.activity_marriage_list);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(40, systemBars.top, 40, systemBars.bottom);
             return insets;
         });
 
@@ -176,6 +178,12 @@ public class Marriage_List_Activity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(MyApp.applyLanguageContext(newBase));
+        super.attachBaseContext(LocalHelper.wrap(newBase, LocalHelper.getCurrentLanguage(newBase)));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocalHelper.setLocale(this, LocalHelper.getCurrentLanguage(this));
     }
 }

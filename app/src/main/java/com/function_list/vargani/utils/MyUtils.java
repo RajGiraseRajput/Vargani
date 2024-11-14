@@ -94,24 +94,5 @@ public class MyUtils {
     }
 
 
-    public static void saveLanguage(String languageCode, Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("Settings", context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("My_Lang", languageCode);
-        editor.apply();
-    }
-
-    public static void setLocale(String languageCode, Context context) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            config.setLocales(new android.os.LocaleList(locale));
-        } else {
-            config.locale = locale;
-        }
-        // Use the passed context instead of getBaseContext()
-        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
-    }
 
 }

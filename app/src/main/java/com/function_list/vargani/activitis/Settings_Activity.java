@@ -2,6 +2,7 @@ package com.function_list.vargani.activitis;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -21,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.function_list.vargani.R;
 import com.function_list.vargani.databinding.ActivitySettingsBinding;
 import com.function_list.vargani.model.MyApp;
+import com.function_list.vargani.utils.LocalHelper;
 import com.function_list.vargani.utils.MyUtils;
 import com.function_list.vargani.utils.SharedPrefs;
 
@@ -42,7 +44,7 @@ public class Settings_Activity extends AppCompatActivity {
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(40, systemBars.top, 40, systemBars.bottom);
             return insets;
         });
 
@@ -53,9 +55,9 @@ public class Settings_Activity extends AppCompatActivity {
             }
         });
 
-        SharedPreferences sharedPreferences = getSharedPreferences("checked",MODE_PRIVATE);
-        boolean checked = sharedPreferences.getBoolean("checked",false);
-        Log.e("checked",""+checked);
+        SharedPreferences sharedPreferences = getSharedPreferences("checked", MODE_PRIVATE);
+        boolean checked = sharedPreferences.getBoolean("checked", false);
+        Log.e("checked", "" + checked);
         binding.sbDarkMood.setChecked(checked);
 
         binding.sbDarkMood.setOnClickListener(new View.OnClickListener() {
@@ -64,17 +66,17 @@ public class Settings_Activity extends AppCompatActivity {
                 int mode = SharedPrefs.getAppNightDayMode(getApplicationContext());
                 if (mode == AppCompatDelegate.MODE_NIGHT_NO) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPrefs.setInt(getApplicationContext(), SharedPrefs.PREF_NIGHT_MODE,AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPreferences sharedPreferences = getSharedPreferences("checked",Context.MODE_PRIVATE);
+                    SharedPrefs.setInt(getApplicationContext(), SharedPrefs.PREF_NIGHT_MODE, AppCompatDelegate.MODE_NIGHT_YES);
+                    SharedPreferences sharedPreferences = getSharedPreferences("checked", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("checked",true);
+                    editor.putBoolean("checked", true);
                     editor.apply();
-                }else {
+                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    SharedPrefs.setInt(getApplicationContext(), SharedPrefs.PREF_NIGHT_MODE,AppCompatDelegate.MODE_NIGHT_NO);
-                    SharedPreferences sharedPreferences = getSharedPreferences("checked",Context.MODE_PRIVATE);
+                    SharedPrefs.setInt(getApplicationContext(), SharedPrefs.PREF_NIGHT_MODE, AppCompatDelegate.MODE_NIGHT_NO);
+                    SharedPreferences sharedPreferences = getSharedPreferences("checked", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("checked",false);
+                    editor.putBoolean("checked", false);
                     editor.apply();
                 }
             }
@@ -95,9 +97,9 @@ public class Settings_Activity extends AppCompatActivity {
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyUtils.saveLanguage("en",Settings_Activity.this);
-                MyUtils.setLocale("en",Settings_Activity.this);
-                recreate(); // Restart the activity to apply the new language
+
+                LocalHelper.setLocale(Settings_Activity.this, "en");
+                recreate();
                 dialog.dismiss();
             }
         });
@@ -105,9 +107,9 @@ public class Settings_Activity extends AppCompatActivity {
         marathi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyUtils.saveLanguage("mr",Settings_Activity.this);
-                MyUtils.setLocale("mr",Settings_Activity.this);
-                recreate(); // Restart the activity to apply the new language
+
+                LocalHelper.setLocale(Settings_Activity.this, "mr");
+                recreate();
                 dialog.dismiss();
             }
         });
@@ -115,26 +117,27 @@ public class Settings_Activity extends AppCompatActivity {
         dialog.show();
     }
 
-
-
-
-    private void saveLanguage(String languageCode) {
-        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("My_Lang", languageCode);
-        editor.apply();
-    }
-
-    private void setLocale(String languageCode) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocalHelper.wrap(newBase, LocalHelper.getCurrentLanguage(newBase)));
     }
 
     @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(MyApp.applyLanguageContext(newBase));
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocalHelper.setLocale(this, LocalHelper.getCurrentLanguage(this));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        restartApp();
+    }
+
+    public void restartApp() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }
