@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vargani</string>
+    <string name="app_name">Subscriptions</string>
 
     <string name="ganpati_subscription">Ganesha subscription</string>
     <string name="marriage_list">Marriage list</string>
@@ -41,6 +41,9 @@
     <string name="saree_voice">Speak the Saree</string>
     <string name="gift_voice">Speak the Gift</string>
     <string name="gift_yes_no">Please field in Gift on Yes or No</string>
+    <string name="download_in_pdf_file">Save in PDF file</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 
 </resources>

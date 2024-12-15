@@ -6,12 +6,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int VOICE_REQ_CODE = 111;
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(binding.getRoot());
 
-        intent = new Intent(MainActivity.this,Marriage_List_Activity.class);
+        intent = new Intent(MainActivity.this, Marriage_List_Activity.class);
 
 //        setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -50,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO}, VOICE_REQ_CODE);
+        if ((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) &&
+                ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.POST_NOTIFICATIONS}, VOICE_REQ_CODE);
         }
 
         binding.cvGaneshaSubscription.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        intent.putExtra("gender",getResources().getString(R.string.male));
+                        intent.putExtra("gender", getResources().getString(R.string.male));
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        intent.putExtra("gender",getResources().getString(R.string.female));
+                        intent.putExtra("gender", getResources().getString(R.string.female));
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -136,11 +141,11 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == VOICE_REQ_CODE){
+        if (requestCode == VOICE_REQ_CODE) {
 
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-            }else {
+            } else {
                 Toast.makeText(this, "Permission Denied...", Toast.LENGTH_SHORT).show();
             }
         }

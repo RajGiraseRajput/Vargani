@@ -22,14 +22,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name"
                 style="@style/ganesh_subs_text"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.3"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_name"
                 style="@style/ganesh_subs_text"
-                android:layout_weight="0.75"/>
+                android:layout_weight="0.7"/>
 
         </LinearLayout>
 
@@ -44,14 +44,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/amount"
                 style="@style/ganesh_subs_text"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.3"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_amount"
                 style="@style/ganesh_subs_text"
-                android:layout_weight="0.75"/>
+                android:layout_weight="0.7"/>
 
         </LinearLayout>
 
@@ -90,14 +90,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/address"
                 style="@style/ganesh_subs_text"
-                android:layout_weight="0.25"/>
+                android:layout_weight="0.3"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_address"
                 style="@style/ganesh_subs_text"
-                android:layout_weight="0.75"/>
+                android:layout_weight="0.7"/>
 
         </LinearLayout>
 

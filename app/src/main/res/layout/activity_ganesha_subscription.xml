@@ -38,7 +38,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.24"
                         android:text="@string/name" />
 
                     <EditText
@@ -46,7 +46,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_name"
                         android:inputType="text" />
@@ -81,7 +81,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.26"
                         android:text="@string/amount" />
 
                     <EditText
@@ -89,7 +89,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_amount"
                         android:inputType="number" />
@@ -125,7 +125,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.26"
                         android:text="@string/address" />
 
                     <EditText
@@ -133,7 +133,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_address"
                         android:inputType="text" />
@@ -171,7 +171,7 @@
                     style="@style/btn_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_weight="0.5"
                     android:backgroundTint="@color/splash_Screen_bg"
                     android:text="@string/all_details" />
@@ -189,201 +189,43 @@
 
     </ScrollView>
 
-    <!-- Fixed Button at the Bottom -->
-    <Button
-        android:id="@+id/btn_hide"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
+        android:id="@+id/lay_hide_download"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/splash_Screen_bg"
-        android:text="@string/hide"
-        android:visibility="gone" />
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_hide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/splash_Screen_bg"
+            android:text="@string/hide"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/btn_pdf_download"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/splash_Screen_bg"
+            android:text="@string/download_in_pdf_file"
+            android:visibility="visible"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+
+    </LinearLayout>
 
 </LinearLayout>
 
 
 
 
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/main"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:orientation="vertical"-->
-<!--    android:padding="20dp"-->
-<!--    tools:context=".activitis.Ganesha_Subscription_Activity">-->
-
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    app:cardCornerRadius="10dp"-->
-<!--                    app:cardUseCompatPadding="true">-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal"-->
-<!--                        android:weightSum="1">-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/tv_name"-->
-<!--                            style="@style/ganesh_subs_text"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="0.23"-->
-<!--                            android:text="@string/name" />-->
-
-<!--                        <EditText-->
-<!--                            android:id="@+id/ed_names"-->
-<!--                            style="@style/ganesh_subs_text"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="0.77"-->
-<!--                            android:background="@null"-->
-<!--                            android:hint="@string/hint_name"-->
-<!--                            android:inputType="text" />-->
-
-<!--                    </LinearLayout>-->
-
-<!--                </androidx.cardview.widget.CardView>-->
-
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    app:cardCornerRadius="10dp"-->
-<!--                    app:cardUseCompatPadding="true">-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal"-->
-<!--                        android:weightSum="1">-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/tv_amount"-->
-<!--                            style="@style/ganesh_subs_text"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="0.23"-->
-<!--                            android:text="@string/amount" />-->
-
-<!--                        <EditText-->
-<!--                            android:id="@+id/ed_amounts"-->
-<!--                            style="@style/ganesh_subs_text"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="0.77"-->
-<!--                            android:background="@null"-->
-<!--                            android:hint="@string/hint_amount"-->
-<!--                            android:inputType="number" />-->
-
-<!--                    </LinearLayout>-->
-
-<!--                </androidx.cardview.widget.CardView>-->
-
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    app:cardCornerRadius="10dp"-->
-<!--                    app:cardUseCompatPadding="true">-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal"-->
-<!--                        android:weightSum="1">-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/tv_address"-->
-<!--                            style="@style/ganesh_subs_text"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="0.23"-->
-<!--                            android:text="@string/address" />-->
-
-<!--                        <EditText-->
-<!--                            android:id="@+id/ed_address"-->
-<!--                            style="@style/ganesh_subs_text"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="0.77"-->
-<!--                            android:background="@null"-->
-<!--                            android:hint="@string/hint_address"-->
-<!--                            android:inputType="text" />-->
-
-<!--                    </LinearLayout>-->
-
-<!--                </androidx.cardview.widget.CardView>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:weightSum="1">-->
-
-<!--                    <Button-->
-<!--                        android:id="@+id/btn_submit"-->
-<!--                        style="@style/ganesh_subs_text"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="0.5"-->
-<!--                        android:backgroundTint="@color/splash_Screen_bg"-->
-<!--                        android:text="@string/submit" />-->
-
-<!--                    <Button-->
-<!--                        android:id="@+id/btn_all_details"-->
-<!--                        style="@style/ganesh_subs_text"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:layout_weight="0.5"-->
-<!--                        android:backgroundTint="@color/splash_Screen_bg"-->
-<!--                        android:text="@string/all_details" />-->
-
-<!--                </LinearLayout>-->
-
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/recyclerView"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="10dp"-->
-<!--                    android:visibility="gone" />-->
-
-<!--            </LinearLayout>-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_hide"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:backgroundTint="@color/splash_Screen_bg"-->
-<!--                android:text="@string/hide"-->
-<!--                android:visibility="gone" />-->
-
-<!--        </LinearLayout>-->
-
-<!--    </ScrollView>-->
-
-<!--</LinearLayout>-->

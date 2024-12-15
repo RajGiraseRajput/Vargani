@@ -38,7 +38,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.26"
                         android:text="@string/name" />
 
                     <EditText
@@ -46,7 +46,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_name"
                         android:inputType="text" />
@@ -82,7 +82,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.26"
                         android:text="@string/amount" />
 
                     <EditText
@@ -90,7 +90,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_amount"
                         android:inputType="numberDecimal" />
@@ -127,7 +127,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.26"
                         android:text="@string/saree" />
 
                     <EditText
@@ -135,7 +135,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_saree"
                         android:inputType="numberDecimal" />
@@ -170,7 +170,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.23"
+                        android:layout_weight="0.26"
                         android:text="@string/address" />
 
                     <EditText
@@ -178,7 +178,7 @@
                         style="@style/ganesh_subs_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.67"
+                        android:layout_weight="0.64"
                         android:background="@null"
                         android:hint="@string/hint_address"
                         android:inputType="text" />
@@ -236,14 +236,42 @@
     </ScrollView>
 
     <!-- Fixed Button at the Bottom -->
-    <Button
-        android:id="@+id/btn_hide"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
+        android:id="@+id/lay_hide_download"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/splash_Screen_bg"
-        android:text="@string/hide"
-        android:visibility="gone" />
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_hide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/splash_Screen_bg"
+            android:text="@string/hide"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/btn_pdf_download"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/splash_Screen_bg"
+            android:text="@string/download_in_pdf_file"
+            android:visibility="visible"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

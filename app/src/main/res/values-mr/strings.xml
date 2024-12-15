@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vargani</string>
+    <string name="app_name">Subscriptions</string>
 
     <string name="ganpati_subscription">गणेश वर्गणी</string>
     <string name="marriage_list">लग्नाची यादी</string>
@@ -35,4 +35,14 @@
     <string name="select_language">भाषा निवडा</string>
     <string name="english">English</string>
     <string name="marathi">मराठी</string>
+    <string name="name_voice">नाव बोला</string>
+    <string name="amount_voice">रक्कम बोला</string>
+    <string name="address_voice">पत्ता बोला</string>
+    <string name="saree_voice">Speak the Saree</string>
+    <string name="gift_voice">भेट बोला</string>
+    <string name="gift_yes_no">कृपया गिफ्टमध्ये होय किंवा नाही वर फील्ड करा</string>
+    <string name="download_in_pdf_file">पीडीएफ फाइलमध्ये सेव्ह करा</string>
+    <string name="yes">होय</string>
+    <string name="no">नाही</string>
+
 </resources>

@@ -139,7 +139,8 @@ public class Ganesha_Subscription_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 subscriptionList = dataBaseHelper.getAllGaneshaSubscription();
 
-                if (subscriptionList.size() > 0) {
+                if (!subscriptionList.isEmpty()) {
+
                     binding.recyclerView.setVisibility(View.VISIBLE);
                     adapter = new Ganesha_Subscription_Adapter(Ganesha_Subscription_Activity.this, subscriptionList);
                     binding.recyclerView.setLayoutManager(new LinearLayoutManager(Ganesha_Subscription_Activity.this));
@@ -149,7 +150,7 @@ public class Ganesha_Subscription_Activity extends AppCompatActivity {
                     Animation slideIn = AnimationUtils.loadAnimation(Ganesha_Subscription_Activity.this, R.anim.slide_in);
                     binding.recyclerView.startAnimation(slideIn);
 
-                    binding.btnHide.setVisibility(View.VISIBLE);
+                    binding.layHideDownload.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(Ganesha_Subscription_Activity.this, getString(R.string.no_data), Toast.LENGTH_SHORT).show();
                 }
@@ -197,12 +198,22 @@ public class Ganesha_Subscription_Activity extends AppCompatActivity {
         binding.btnHide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.btnHide.setVisibility(View.GONE);
+                binding.layHideDownload.setVisibility(View.GONE);
+
                 binding.recyclerView.setVisibility(View.GONE);
 
                 Animation slideIn = AnimationUtils.loadAnimation(Ganesha_Subscription_Activity.this, R.anim.slide_in);
                 binding.recyclerView.startAnimation(slideIn);
 
+            }
+        });
+
+        binding.btnPdfDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataBaseHelper.savePdfGaneshaSubscriptions(Ganesha_Subscription_Activity.this);
+                binding.layHideDownload.setVisibility(View.GONE);
+                binding.recyclerView.setVisibility(View.GONE);
             }
         });
 

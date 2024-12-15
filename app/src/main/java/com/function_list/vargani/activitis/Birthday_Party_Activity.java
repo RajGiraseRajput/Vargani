@@ -63,9 +63,9 @@ public class Birthday_Party_Activity extends AppCompatActivity {
                 String gift = binding.edGift.getText().toString();
                 String address = binding.edAddress.getText().toString();
 
-                if(!name.equals("") && !amount.equals("") && !gift.equals("") && !address.equals("")){
+                if(!name.isEmpty() && !amount.isEmpty() && !gift.isEmpty() && !address.isEmpty()){
 
-                    if (gift.equalsIgnoreCase("yes") || gift.equalsIgnoreCase("no")){
+                    if (gift.equalsIgnoreCase(getApplication().getResources().getString(R.string.yes)) || gift.equalsIgnoreCase(getApplication().getResources().getString(R.string.no))){
                         boolean isInserted = dataBaseHelper.added_Birthday_Party(name,amount,gift,address);
 
                         if (isInserted){
@@ -107,7 +107,7 @@ public class Birthday_Party_Activity extends AppCompatActivity {
                     Animation slindeIn = AnimationUtils.loadAnimation(Birthday_Party_Activity.this,R.anim.slide_in);
                     binding.recyclerView.startAnimation(slindeIn);
 
-                    binding.btnHide.setVisibility(View.VISIBLE);
+                    binding.layHideDownload.setVisibility(View.VISIBLE);
                 }else{
                     Toast.makeText(Birthday_Party_Activity.this, getString(R.string.no_data), Toast.LENGTH_SHORT).show();
                 }
@@ -146,9 +146,18 @@ public class Birthday_Party_Activity extends AppCompatActivity {
         binding.btnHide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.btnHide.setVisibility(View.GONE);
+                binding.layHideDownload.setVisibility(View.GONE);
                 binding.recyclerView.setVisibility(View.GONE);
 
+            }
+        });
+
+        binding.btnPdfDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataBaseHelper.savePdfBirthdayParty(Birthday_Party_Activity.this);
+                binding.layHideDownload.setVisibility(View.GONE);
+                binding.recyclerView.setVisibility(View.GONE);
             }
         });
     }

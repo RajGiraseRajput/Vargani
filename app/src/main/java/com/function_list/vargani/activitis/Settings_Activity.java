@@ -55,6 +55,13 @@ public class Settings_Activity extends AppCompatActivity {
             }
         });
 
+//        int day = AppCompatDelegate.MODE_NIGHT_NO;
+//        boolean day_mode;
+//        if (day == 1){
+//            day_mode = true;
+//        }else{
+//            day_mode = false;
+//        }
         SharedPreferences sharedPreferences = getSharedPreferences("checked", MODE_PRIVATE);
         boolean checked = sharedPreferences.getBoolean("checked", false);
         Log.e("checked", "" + checked);

@@ -48,4 +48,7 @@ dependencies {
 
     implementation ("com.intuit.sdp:sdp-android:1.1.1")
 
+    implementation ("com.itextpdf:itext7-core:7.1.15")
+
+
 }
